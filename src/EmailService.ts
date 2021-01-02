@@ -31,6 +31,8 @@ export default function <Emails extends EmailsList>(config: EmailConfig, emails:
   const transport: Transporter = createTransport(transportConfig, defaults)
 
   return {
+    transport,
+
     send<TemplateName extends keyof Emails>(
       template: TemplateName,
       props: ArgumentType<Emails[TemplateName]>,
